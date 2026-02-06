@@ -92,6 +92,7 @@ option(BUILD_SHARED_LIBS "Build the plugin as a shared lib" ON)
 add_library(${PROJECT_NAME} ${TVAgentApi_INTERFACE} ${TVAgentApi_SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/internal)
 target_link_libraries(${PROJECT_NAME} PUBLIC ${PROJECT_NAME}.interface)
+target_link_libraries(${PROJECT_NAME} PRIVATE TVAgentAPIPrivate)
 target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Wpedantic -Wshadow)
 
 if(BUILD_SHARED_LIBS)
